@@ -2,6 +2,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.5.10"
+
+    // Shadow jar: permette di creare una jar (eseguibile con java) contenente tutto il nostro codice + quello delle "dependencies" listate sotto
+    id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
 group = "dev.giuliopime.kubernetes-discord-bot"
@@ -36,6 +39,20 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.2.6")
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
+tasks {
+    withType<KotlinCompile>() {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+
+    shadowJar {
+        // Imposto il nome della jar
+        archiveFileName.set("kubernetes-discord-bot.jar")
+    }
+}
+
+// Qualsiasi task che esegue la build deve includere le dependencies per questo deve usare la shadowjar
+tasks {
+    build {
+        dependsOn(shadowJar)
+    }
 }
