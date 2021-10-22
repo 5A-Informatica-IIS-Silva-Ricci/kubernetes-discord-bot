@@ -13,3 +13,14 @@ RUN chmod +x ./gradlew
 # Eseguo il task gradle "shadowJar" con gradlew -> mi creerà la jar del bot
 RUN ./gradlew shadowJar
 
+
+FROM openjdk:16-jdk
+# Copy la shadowjar create prima con il "builder" in /opt/helpdesk
+WORKDIR /opt/helpdesk
+COPY --from=builder ./etc/bot/build/libs/ .
+# Copio il file .env
+COPY --from=builder ./etc/bot/.env .
+# Uso entrypoint per runnare la jar con il comando java -jar {nomejar}
+ENTRYPOINT java \
+    -jar \
+    ./kubernetes-discord-bot.jar

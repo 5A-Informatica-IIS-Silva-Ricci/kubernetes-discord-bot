@@ -1,4 +1,6 @@
 import dev.minn.jda.ktx.listener
+import environment.Impostazioni
+import environment.PodInfo
 import mu.KotlinLogging
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent
 import net.dv8tion.jda.api.interactions.commands.build.CommandData
