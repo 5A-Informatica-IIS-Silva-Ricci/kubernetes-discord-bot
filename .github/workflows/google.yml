@@ -51,6 +51,14 @@ jobs:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
         credentials: ${{ secrets.GKE_SA_KEY }}
+        
+    # Set up .env file
+    - name: Setup .env file
+      env:
+        ENV_FILE: ${{ secrets.ENV_FILE }}
+      run: |-
+        echo $ENV_FILE | base64 --decode > .env
+
 
     # Build the Docker image
     - name: Build
