@@ -22,7 +22,7 @@ env:
   GKE_CLUSTER: gke-cluster    # TODO: update to cluster name
   GKE_ZONE: us-west1   # TODO: update to cluster zone
   DEPLOYMENT_NAME: bot # TODO: update to deployment name
-  IMAGE: giuliopime/kubernetes_discord_bot:1.0.0
+  IMAGE: kubernetes_discord_bot:1.0.0
 
 jobs:
   setup-build-publish-deploy:
