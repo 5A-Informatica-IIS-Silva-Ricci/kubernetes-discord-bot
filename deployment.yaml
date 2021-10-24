@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bot
+spec:
+  serviceName: "kubernetes-bot"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bot
+  template:
+    metadata:
+      labels:
+        app: bot
+    spec:
+      containers:
+        - name: bot
+          image: "giuliopime/kubernetes_discord_bot:1.0.0"
