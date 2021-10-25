@@ -1,12 +1,15 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("application")
+
     kotlin("jvm") version "1.5.10"
 
     // Shadow jar: permette di creare una jar (eseguibile con java) contenente tutto il nostro codice + quello delle "dependencies" listate sotto
     id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
+application.mainClass.set("BotKt")
 group = "dev.giuliopime.kubernetes-discord-bot"
 version = "1.0"
 
