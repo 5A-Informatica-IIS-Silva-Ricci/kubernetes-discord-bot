@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
         - name: bot
-          image: "gcr.io/kubernetes-test-329821/kubernetes_discord_bot:latest"
+          image: giuliopime/kubernetes_discord_bot:1.0.0
