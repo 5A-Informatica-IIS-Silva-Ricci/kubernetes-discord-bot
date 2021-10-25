@@ -5,6 +5,7 @@ metadata:
   labels:
     app: bot
 spec:
+  progressDeadlineSeconds: 900
   serviceName: "kubernetes-bot"
   replicas: 3
   selector:
@@ -17,4 +18,4 @@ spec:
     spec:
       containers:
         - name: bot
-          image: "giuliopime/kubernetes_discord_bot:1.0.0"
+          image: "gcr.io/kubernetes-test-329821/kubernetes_discord_bot:latest"
