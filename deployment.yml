@@ -5,7 +5,6 @@ metadata:
   labels:
     app: bot
 spec:
-  progressDeadlineSeconds: 900
   serviceName: "kubernetes-bot"
   replicas: 3
   selector:
