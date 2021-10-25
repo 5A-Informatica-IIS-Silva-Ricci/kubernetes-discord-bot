@@ -1,4 +1,0 @@
-commonLabels:
-  app: bot
-resources:
-  - deployment.yaml
