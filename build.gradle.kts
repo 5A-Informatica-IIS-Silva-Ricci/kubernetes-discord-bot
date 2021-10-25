@@ -35,11 +35,6 @@ dependencies {
 
     // Permette di leggere il file .env per impostazioni e chiavi private
     implementation("io.github.cdimascio:dotenv-kotlin:6.2.2")
-
-    // Logger, serve solo per stampare nella console le informazioni
-    implementation("io.github.microutils:kotlin-logging-jvm:2.0.11")
-    implementation("org.slf4j:slf4j-api:1.7.32")
-    implementation("ch.qos.logback:logback-classic:1.2.6")
 }
 
 tasks {

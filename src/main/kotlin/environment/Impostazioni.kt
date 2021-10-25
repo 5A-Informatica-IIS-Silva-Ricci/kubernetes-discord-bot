@@ -1,9 +1,6 @@
 package environment
 
 import io.github.cdimascio.dotenv.dotenv
-import mu.KotlinLogging
-
-private val logger = KotlinLogging.logger {  }
 
 object Impostazioni {
     /*
@@ -28,7 +25,7 @@ object Impostazioni {
         val nomeVariabile = path.uppercase().replace(".", "_")
         // Leggo la variabile dal file, se essa è null e quindi non esiste lancio un'eccezione
         return dotenv[nomeVariabile] ?: run {
-            logger.error("Non ho trovato la chiave $path nel file .env.")
+            println("Non ho trovato la chiave $path nel file .env.")
             throw NoSuchElementException("Non ho trovato la chiave $path nel file .env")
         }
     }
