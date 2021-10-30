@@ -15,7 +15,7 @@ RUN ./gradlew shadowJar
 
 
 FROM openjdk:16-jdk
-# Copy la shadowjar create prima con il "builder" in /opt/helpdesk
+# Copio la shadowjar create prima con il "builder" in /opt/helpdesk
 WORKDIR /opt/helpdesk
 COPY --from=builder ./etc/bot/build/libs/ .
 # Copio il file .env

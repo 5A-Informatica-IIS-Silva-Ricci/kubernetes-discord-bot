@@ -1,20 +1,20 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: StatefulSet # Indica che i pod hanno un hostname incrementale: pod-0, pod-1, etc...
 metadata:
   name: bot
   labels:
     app: bot
 spec:
   serviceName: "kubernetes-bot"
-  replicas: 2
+  replicas: 2 # Numero di pod da eseguire, deve essere lo stesso contenuto in .env
   selector:
     matchLabels:
-      app: bot
+      app: bot # Serve per l'identificazione dei pod
   template:
     metadata:
       labels:
-        app: bot
+        app: bot # Server per la nomenclatura dei pod
     spec:
       containers:
         - name: bot
-          image: giuliopime/k8s-bot:1.0.0
+          image: giuliopime/k8s-bot:1.0.0 # Immagine da eseguire nei pod

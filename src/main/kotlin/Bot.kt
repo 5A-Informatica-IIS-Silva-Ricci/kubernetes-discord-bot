@@ -1,8 +1,5 @@
 import dev.minn.jda.ktx.injectKTX
 import dev.minn.jda.ktx.listener
-import environment.Impostazioni
-import environment.PodInfo
-import net.dv8tion.jda.api.events.GenericEvent
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent
 import net.dv8tion.jda.api.interactions.commands.build.CommandData
 import net.dv8tion.jda.api.requests.GatewayIntent
@@ -22,7 +19,7 @@ fun main() {
         .setToken(Impostazioni.discordToken) // Token per l'autenticazione su Discord
         .setShardsTotal(Impostazioni.numeroDiShard) // Imposto il numero di shard che lavoreranno su questo pod
         .setShards(podInfo.shardIDMinima, podInfo.shardIDMassima) // Setto la shard di partenza e di fine per questo pod
-        .injectKTX()
+        .injectKTX() // Abilitiamo la libreria jda-ktx elencata nelle dependencies in build.gradle.kts che ci permette di usare il metodo .listener a riga 37
         .build()
 
     println("Bot avviato (con shard dalla ${podInfo.shardIDMinima} alla ${podInfo.shardIDMassima})")

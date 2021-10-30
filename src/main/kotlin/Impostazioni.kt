@@ -1,5 +1,3 @@
-package environment
-
 import io.github.cdimascio.dotenv.dotenv
 
 object Impostazioni {
